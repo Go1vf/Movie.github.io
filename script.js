@@ -2,30 +2,50 @@ let allMovies = [];
 
 //Movie object contructor
 function Movie(title, rating, havewatched) {
- 
+    this.title = title;
+    this.rating = rating;
+    this.havewatched = havewatched;
 }
 
 //add a movie OBJECT to the allMovies array
 function addMovie (movie) {
-
+    allMovies.push(movie);
+    console.log("A new movie is added");
 }
 
 //iterate through all elements of allMovies array
 //print out to console in a correct format
 //print out the total number of movies in allMovies array
 function printMovies () {
- 
+    console.log("Printing all movies....");
+    for (let i = 0; i < allMovies.length; i++){
+        console.log(allMovies[i].title+", rating of "+ allMovies[i].title +", havewatched: "+allMovies[i].havewatched);
+    }
+    console.log("You have "+ allMovies.length + " movies in total");
 }
 
 //print out to console, only the movies that has a rating higher than rating(argument)
 //print out the total number of matches
 function highRatings (rating) {
-
+    console.log("printng movie that has a rating higher than " + rating);
+    let number = 0;
+    for (let i = 0; i < allMovies.length; i++){
+       if (allMovies[i].rating > rating){
+           console.log(allMovies[i].title + " has a rating of "+ allMovies[i].rating);
+           number++;
+       } 
+    }
+    console.log("In total, there are " + number + " matches");
 }
 
 //Toggle the 'haveWatched' property of the specified movie 
 function changeWatched (title) {
-  
+    for (let i = 0; i < allMovies.length; i++) {
+        if (allMovies[i].title == title){
+            allMovies[i].havewatched = !allMovies[i].havewatched;
+        }
+    }
+    console.log("changing the status of the movie...");
 }
 
 
